@@ -1,0 +1,354 @@
+openapi: 3.0.2
+info:
+  title: controltower-asset-manager
+  version: 1.0.1
+  description: |-
+    asset manager api
+    MINIO
+paths:
+  /api/asset-command/assets/clone-asset:
+    summary: clone asset
+    description: clone asset
+    post:
+      requestBody:
+        description: request payload
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requestAsset'
+        required: true
+      tags:
+        - ASSET-COMMAND
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/assetResponse'
+          description: success to clone asset
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '406':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+      summary: clone asset
+      description: clone asset
+  '/api/asset-command/assets/add-asset/{tenantId}/{module}':
+    summary: add asset
+    description: add asset
+    post:
+      requestBody:
+        description: request payload
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  format: binary
+                  type: string
+        required: true
+      tags:
+        - ASSET-COMMAND
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/assetResponse'
+          description: success to upload asset
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '406':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+      summary: add asset
+      description: add asset
+    parameters:
+      -
+        name: tenantId
+        description: the country isocode where to store the asset
+        schema:
+          type: string
+        in: path
+        required: true
+      -
+        name: module
+        description: the module where to store the asset
+        schema:
+          enum:
+            - CARE_MEDIA_CENTER
+            - CARE_LOYALTY_FAMILY
+            - CARE_OFFER_FAMILY
+            - CARE_PACKAGE
+            - CARE_OPTION_FAMILY
+            - PLACE_VENDOR
+            - PLACE_CATEGORY
+            - PLACE_SERVICE
+            - PLACE_SHOP
+            - PLACE_PRODUCT
+            - STORIES
+            - COUNTRY
+            - AUDIENCE
+            - COMMUNICATION
+          type: string
+        in: path
+        required: true
+  '/api/asset-command/assets/update-asset/{tenantId}/{module}':
+    summary: update asset
+    description: update asset
+    post:
+      requestBody:
+        description: request payload
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  format: binary
+                  type: string
+        required: true
+      tags:
+        - ASSET-COMMAND
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/assetResponse'
+          description: success to upload asset
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '406':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+          description: error
+      summary: update asset
+      description: update asset
+    parameters:
+      -
+        name: tenantId
+        description: the country isocode where to store the asset
+        schema:
+          type: string
+        in: path
+        required: true
+      -
+        name: module
+        description: the module where to store the asset
+        schema:
+          enum:
+            - CARE_MEDIA_CENTER
+            - CARE_LOYALTY_FAMILY
+            - CARE_OFFER_FAMILY
+            - CARE_PACKAGE
+            - CARE_OPTION_FAMILY
+            - PLACE_VENDOR
+            - PLACE_CATEGORY
+            - PLACE_SERVICE
+            - PLACE_SHOP
+            - PLACE_PRODUCT
+            - STORIES
+            - COUNTRY
+            - AUDIENCE
+            - COMMUNICATION
+          type: string
+        in: path
+        required: true
+components:
+  schemas:
+    assetResponse:
+      description: the returned asset response corresponds to the url of the stored asset
+      type: object
+      properties:
+        url:
+          description: url of the stored asset
+          type: string
+        status:
+          description: ''
+          type: string
+      additionalProperties: false
+      example:
+        url: some text
+        status: succes
+    requestAsset:
+      description: request asset to clone
+      required:
+        - tenantIdSource
+        - tenantIdDestination
+        - module
+        - filesNames
+      type: object
+      properties:
+        module:
+          description: modules directory from where the asset will be copied
+          enum:
+            - CARE_MEDIA_CENTER
+            - CARE_LOYALTY_FAMILY
+            - CARE_OFFER_FAMILY
+            - CARE_PACKAGE
+            - CARE_OPTION_FAMILY
+            - PLACE_VENDOR
+            - PLACE_CATEGORY
+            - PLACE_SERVICE
+            - PLACE_SHOP
+            - PLACE_PRODUCT
+            - STORIES
+            - COUNTRY
+            - AUDIENCE
+            - COMMUNICATION
+          type: string
+        filesNames:
+          description: an array of files names to copy
+          type: array
+          items:
+            type: string
+        tenantIdDestination:
+          description: tenant where the asset will be copied
+          type: string
+        tenantIdSource:
+          description: tenant from where the asset will be copied
+          type: string
+    details:
+      description: error details
+      type: object
+      properties:
+        field:
+          description: field name concerned by the returned error
+          type: string
+        message:
+          description: relative field message concerned by the returned error
+          type: string
+    error:
+      description: ''
+      type: object
+      properties:
+        code:
+          description: error specific code to classify the error
+          type: string
+        message:
+          description: error message describing the specific error code
+          type: string
+        details:
+          description: error details object
+          type: array
+          items:
+            $ref: '#/components/schemas/details'
+      additionalProperties: false
+      example:
+        code: '5003'
+        message: constraint field required
+        details:
+          -
+            field: some text
+            message: some text
+          -
+            field: some text
+            message: some text
