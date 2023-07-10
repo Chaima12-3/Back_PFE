@@ -39,7 +39,7 @@ public class Email {
     private String url;
     private User user;
     private List<Email> mails;
-   private Long x;
+
 
 
 

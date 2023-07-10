@@ -36,13 +36,7 @@ public class EmailResource {
     EmailDirect emailDirect;
 
 
-   @POST
-   @Path("/count")
-   @Consumes(MediaType.APPLICATION_JSON)
-   @Produces(MediaType.APPLICATION_JSON)
-   public Long count(@QueryParam("gender") String gender){
-       return emailService.count(gender);
-   }
+
 
     @POST
     @Path("/countP")
@@ -68,6 +62,7 @@ public class EmailResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response get(Filter1 filter){
         List<Email> items = emailService.getAll(filter);
+        Log.info(items);
         return Response.ok(items).build();
     }
 

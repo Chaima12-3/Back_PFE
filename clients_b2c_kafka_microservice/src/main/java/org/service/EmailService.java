@@ -40,6 +40,7 @@ public class EmailService {
     public Response add(Email email) {
 
         emailRepository.persist(email);
+        Log.info("test");
         return Response.status(Response.Status.CREATED).build();
     }
 
@@ -77,14 +78,7 @@ public class EmailService {
         return usersWithCount;
     }
 
-    public Long count(String gender){
-        Email email = new Email();
-        Log.info(emailRepository.find("gender",gender).list());
-        email.setX(emailRepository.findByGender(gender).stream().count());
-        System.out.println("Number of clients with gender 'women': " + email.getX());
 
-        return email.getX();
-    }
 
     public Response editClient(String id, Email b2C) {
         Email b2C1 = emailRepository.findById(new ObjectId(id));

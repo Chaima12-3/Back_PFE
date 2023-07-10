@@ -6,4 +6,6 @@ import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class UserRepository implements PanacheMongoRepository<KeycloakUser> {
+
+
 }

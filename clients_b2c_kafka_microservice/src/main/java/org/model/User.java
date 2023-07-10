@@ -2,9 +2,9 @@ package org.model;
 
 public class User {
 
-    private String username;
+    private String userName;
 
-    private String email;
+    private String userEmail;
 
     private Long count ;
 
@@ -12,26 +12,26 @@ public class User {
     public User(){}
 
     public User(String username, String email, Long count, Long countP) {
-        this.username = username;
-        this.email = email;
+        this.userName = username;
+        this.userEmail = email;
         this.count = count;
         this.countP = countP;
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getEmail() {
-        return email;
+        return userEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.userEmail = email;
     }
 
     public Long getCount() {
