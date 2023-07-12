@@ -1,21 +1,38 @@
 package org.model;
 
 public class User {
-    private String username;
-    private String email;
+    private String userName;
+    private String userEmail;
     private Long countB ;
 
     private Long countBP ;
 
 
     public User(){}
-    public User(String username, String email, Long countB, Long countBP) {
-        this.username = username;
-        this.email = email;
+
+    public User(String userName, String userEmail, Long countB, Long countBP) {
+        this.userName = userName;
+        this.userEmail = userEmail;
         this.countB = countB;
         this.countBP = countBP;
-
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     public Long getCountB() {
         return countB;
     }
@@ -32,19 +49,5 @@ public class User {
         this.countBP = countBP;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

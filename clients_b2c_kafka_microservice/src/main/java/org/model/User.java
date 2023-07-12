@@ -11,27 +11,27 @@ public class User {
     private Long countP ;
     public User(){}
 
-    public User(String username, String email, Long count, Long countP) {
-        this.userName = username;
-        this.userEmail = email;
+    public User(String userName, String userEmail, Long count, Long countP) {
+        this.userName = userName;
+        this.userEmail = userEmail;
         this.count = count;
         this.countP = countP;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUsername(String username) {
-        this.userName = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getEmail() {
+    public String getUserEmail() {
         return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.userEmail = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public Long getCount() {

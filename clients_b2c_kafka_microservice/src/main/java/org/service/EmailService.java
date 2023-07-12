@@ -62,13 +62,13 @@ public class EmailService {
         List<User> usersWithCount = new ArrayList<>();
 
         for (User u : user) {
-            List<EmailPlan> resP = emailPlanRepository.find("user.userEmail", u.getEmail()).list();
-            List<Email> res = emailRepository.find("user.userEmail",u.getEmail()).list();
+            List<EmailPlan> resP = emailPlanRepository.find("user.userEmail", u.getUserEmail()).list();
+            List<Email> res = emailRepository.find("user.userEmail",u.getUserEmail()).list();
             long countP = resP.stream().count();
             long count = res.stream().count();
             User userWithCount = new User();
-            userWithCount.setEmail(u.getEmail());
-            userWithCount.setUsername(u.getUsername());
+            userWithCount.setUserEmail(u.getUserEmail());
+            userWithCount.setUserName(u.getUserName());
             userWithCount.setCount(count);
             userWithCount.setCountP(countP);
 
@@ -107,9 +107,9 @@ public class EmailService {
         List<Email> bs = null, sorted = null;
         List<Email> res = null;
 
-        if (filters.getUser().getEmail() != null && !filters.getUser().getEmail().isEmpty()) {
+        if (filters.getUser().getUserEmail() != null && !filters.getUser().getUserEmail().isEmpty()) {
             res = emailRepository.streamAll()
-                    .filter(item -> item.getUser().getEmail().toLowerCase().contains(filters.getUser().getEmail().toLowerCase())
+                    .filter(item -> item.getUser().getUserEmail().toLowerCase().contains(filters.getUser().getUserEmail().toLowerCase())
                     ).collect(Collectors.toList());
             if (filters.getFilter() != null && !filters.getFilter().isEmpty()) {
                 bs = res.stream()

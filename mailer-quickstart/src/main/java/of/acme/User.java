@@ -2,33 +2,32 @@ package of.acme;
 
 public class User {
 
-    private String userName;
-    private String userEmail;
+    private String username;
+    private String email;
     private String password;
+    private Mail mail;
 
-    public User(String userName, String userEmail, String password, Mail mail) {
-        this.userName = userName;
-        this.userEmail = userEmail;
+    public User(String username, String email, String password, Mail mail) {
+        this.username = username;
+        this.email = email;
         this.password = password;
         this.mail = mail;
     }
 
-    private Mail mail;
-
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

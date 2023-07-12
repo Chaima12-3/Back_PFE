@@ -23,7 +23,7 @@ public class MailResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Blocking
     public void sendEmail(User user) {
-        mailer.send(Mail.withText(user.getUserEmail(), user.getMail().getSubject(), user.getMail().getMessage()));
+        mailer.send(Mail.withText(user.getEmail(), user.getMail().getSubject(), user.getMail().getMessage()));
     }
 
     @POST
@@ -32,7 +32,7 @@ public class MailResource {
     @Blocking
     public void send(User user) {
         String objet ="Activation Account";
-        mailer.send(Mail.withText(user.getUserEmail(), objet, user.getMail().getMessage()));
+        mailer.send(Mail.withText(user.getEmail(), objet, user.getMail().getMessage()));
     }
     @Inject
     ReactiveMailer reactiveMailer;

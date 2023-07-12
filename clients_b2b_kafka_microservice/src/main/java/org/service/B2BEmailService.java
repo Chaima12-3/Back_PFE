@@ -102,13 +102,13 @@ public class B2BEmailService {
         List<User> usersWithCount = new ArrayList<>();
 
         for (User u : user) {
-            List<EmailPlans> resP = emailPlanRepository.find("user.userEmail", u.getEmail()).list();
-            List<B2BClients> res = b2BEmailRepository.find("user.userEmail",u.getEmail()).list();
+            List<EmailPlans> resP = emailPlanRepository.find("user.userEmail", u.getUserEmail()).list();
+            List<B2BClients> res = b2BEmailRepository.find("user.userEmail",u.getUserEmail()).list();
             long countBP = resP.stream().count();
             long countB = res.stream().count();
             User userWithCount = new User();
-            userWithCount.setEmail(u.getEmail());
-            userWithCount.setUsername(u.getUsername());
+            userWithCount.setUserEmail(u.getUserEmail());
+            userWithCount.setUserName(u.getUserName());
             userWithCount.setCountB(countB);
             userWithCount.setCountBP(countBP);
 
@@ -126,9 +126,9 @@ public class B2BEmailService {
         List<B2BClients> bs = null,sorted = null;
         List<B2BClients> res = null;
 
-        if(filters.getUser().getEmail() != null && !filters.getUser().getEmail().isEmpty()){
+        if(filters.getUser().getUserEmail() != null && !filters.getUser().getUserEmail().isEmpty()){
             res = b2BEmailRepository.streamAll()
-                    .filter(item -> item.getUser().getEmail().toLowerCase().contains(filters.getUser().getEmail() .toLowerCase())
+                    .filter(item -> item.getUser().getUserEmail().toLowerCase().contains(filters.getUser().getUserEmail() .toLowerCase())
                     ).collect(Collectors.toList());
             if (filters.getFilter() != null && !filters.getFilter().isEmpty()) {
                 bs = res.stream()
