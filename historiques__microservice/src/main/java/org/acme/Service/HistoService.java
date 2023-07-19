@@ -34,7 +34,7 @@ public class HistoService {
         String dateM = str2+" " + hour + ":"+minute;
         String his = "Objet :"+" "+historique.getSubject()+" "+"Message :"+" "+historique.getMessage();
         hashMap.put(his, dateM);
-        Historique his1 = new Historique();
+        Historique his1 = new Historique(historique.getUserName(),historique.getSubject(),historique.getMessage(),dateM);
         histoRepository.persist(his1);
         return Response.ok().build();
     }

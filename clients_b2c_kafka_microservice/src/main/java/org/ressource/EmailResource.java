@@ -10,6 +10,7 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import org.model.Email;
 import org.model.Filter1;
 import org.model.User;
+import org.model.UserM;
 import org.service.EmailDirect;
 import org.service.EmailService;
 
@@ -42,7 +43,7 @@ public class EmailResource {
     @Path("/countP")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> countP(ArrayList<User> user){
+    public List<UserM> countP(ArrayList<UserM> user){
         return emailService.countP(user);
     }
 
@@ -51,7 +52,7 @@ public class EmailResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response send(Email email) {
-       Log.info(email);
+
        emailDirect.sendTo(email);
         return Response.ok().build();
     }
@@ -82,6 +83,7 @@ public class EmailResource {
         emailService.add(b2c);
         return Response.ok(b2c).build();
     }
+
     @PUT
     @Path("/edit/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

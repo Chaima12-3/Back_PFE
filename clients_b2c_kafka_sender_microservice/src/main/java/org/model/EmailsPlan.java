@@ -8,6 +8,8 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RegisterForReflection
@@ -20,8 +22,11 @@ public class EmailsPlan {
     private ObjectId id;
     private String message;
     private String objet;
+    private String email;
     private Filter filter;
     private User user;
-    private Message mail;
+    private List<Emails> mail;
+    private UserM userM;
+    private Date date;
 
 }

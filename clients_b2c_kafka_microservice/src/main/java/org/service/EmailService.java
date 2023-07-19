@@ -3,12 +3,11 @@ package org.service;
 
 import io.quarkus.logging.Log;
 import org.bson.types.ObjectId;
-import org.model.Email;
+import org.model.*;
 
 
-import org.model.EmailPlan;
-import org.model.Filter1;
-import org.model.User;
+import org.model.EmailDirectt;
+import org.repisotory.EmailDirectsRepository;
 import org.repisotory.EmailPlanRepository;
 import org.repisotory.EmailRepository;
 
@@ -35,11 +34,16 @@ public class EmailService {
     EmailRepository emailRepository;
     @Inject
     EmailPlanRepository emailPlanRepository;
+    @Inject
+    EmailDirectsRepository emailDirectsRepository;
 
+    public Response add(Email emails) {
+        String username = emails.getUser().getUserName();
+        String email =emails.getUser().getUserEmail();
 
-    public Response add(Email email) {
-
-        emailRepository.persist(email);
+        UserM userM =new UserM(username,email);
+        emails.setUserM(userM);
+        emailRepository.persist(emails);
         Log.info("test");
         return Response.status(Response.Status.CREATED).build();
     }
@@ -58,20 +62,23 @@ public class EmailService {
         }
     }
 
-    public List<User> countP(ArrayList<User> user) {
-        List<User> usersWithCount = new ArrayList<>();
+    public List<UserM> countP(ArrayList<UserM> user) {
+        List<UserM> usersWithCount = new ArrayList<>();
 
-        for (User u : user) {
-            List<EmailPlan> resP = emailPlanRepository.find("user.userEmail", u.getUserEmail()).list();
-            List<Email> res = emailRepository.find("user.userEmail",u.getUserEmail()).list();
+        for (UserM u : user) {
+            List<EmailPlan> resP = emailPlanRepository.find("user.userEmail", u.getEmail()).list();
+            List<EmailDirectt> res = emailDirectsRepository.find("user.userEmail",u.getEmail()).list();
+            List<Email> resC = emailRepository.find("user.userEmail",u.getEmail()).list();
+            long countC=resC.stream().count();
+
             long countP = resP.stream().count();
             long count = res.stream().count();
-            User userWithCount = new User();
-            userWithCount.setUserEmail(u.getUserEmail());
-            userWithCount.setUserName(u.getUserName());
+            UserM userWithCount = new UserM();
+            userWithCount.setEmail(u.getEmail());
+            userWithCount.setUsername(u.getUsername());
             userWithCount.setCount(count);
             userWithCount.setCountP(countP);
-
+            userWithCount.setCountC(countC);
             usersWithCount.add(userWithCount);
         }
 

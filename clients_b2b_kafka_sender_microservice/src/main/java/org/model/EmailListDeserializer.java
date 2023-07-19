@@ -16,8 +16,6 @@ public class EmailListDeserializer implements Deserializer<Message> {
             return null;
 
         }
-
-
         return jsonbBuilder.build().fromJson(new String(data), Message.class);
     }
 }

@@ -14,11 +14,7 @@ import java.time.chrono.IsoChronology;
 import java.util.Date;
 import java.util.HashMap;
 
-@RegisterForReflection
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ApplicationScoped
 public class Historique {
     @BsonId
     private ObjectId id;
@@ -28,12 +24,58 @@ public class Historique {
     private String message;
 
 
+    public Historique(String userName, String subject, String message, String dateM) {
+        UserName = userName;
 
+        this.subject = subject;
+        this.message = message;
+        this.dateM = dateM;
+    }
 
+    public String getUserName() {
+        return UserName;
+    }
 
-   private String dateM ;
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public String getUserEmail() {
+        return UserEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        UserEmail = userEmail;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getDateM() {
+        return dateM;
+    }
+
+    public void setDateM(String dateM) {
+        this.dateM = dateM;
+    }
+
+    private String dateM ;
 
     private HashMap<String, String> hashMap ;
 
-
+    public Historique() {
+    }
 }

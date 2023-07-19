@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,7 @@ public class Filter {
 
     private String pay;
 private String size;
-private LocalDate date;
+private Date date;
 
 
 }

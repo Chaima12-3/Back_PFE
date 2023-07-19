@@ -8,6 +8,7 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @RegisterForReflection
 @Data
@@ -21,6 +22,7 @@ public class EmailsPlan {
     private String objet;
     private Filter filter;
     private User user;
-    private Message mail;
-
+    private List<B2BClient> b2BClients;
+    private UserM userM;
+    private String email;
 }

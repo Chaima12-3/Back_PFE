@@ -12,6 +12,7 @@ import org.model.Message;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.util.Arrays;
 import java.util.List;
 
 @ApplicationScoped
@@ -20,40 +21,10 @@ public class scheduler {
     ReactiveMailer mailer;
 
     @Incoming("b2bs")
-    public void receivee(Record<Message, EmailsPlan> record) {
-        System.out.println("scheduler.receivee");
+    public void receivee(Record<String, EmailsPlan> record) {
+
         EmailsPlan emailContent = record.value();
-        Message emails=record.key();
-        Log.info(emails);
-        for(B2BClient email:emails.getEmails()){
-            List<String> mails=List.of(email.getCampagne_mail());
-
-            Log.info(emailContent);
-            try {
-
-                Mail mail = new Mail()
-                        .setSubject(emailContent.getObjet())
-                        .setTo(mails)
-                        .setText(emailContent.getMessage());
-                mailer.send(mail).subscribeAsCompletionStage();
-            }catch (Exception ex){
-                ex.printStackTrace();
-
-            }}
-
-    }
-
-
-    @Incoming("mailb2bs")
-    public void send(Record<Message, EmailsPlan> record) {
-        System.out.println("scheduler.receivee");
-        EmailsPlan emailContent = record.value();
-        Message emails=record.key();
-        Log.info(emails);
-        for(B2BClient email:emails.getEmails()){
-            List<String> mails=List.of(email.getCampagne_mail());
-
-            Log.info(emailContent);
+        List<String> mails = Arrays.asList(emailContent.getEmail());
             try {
 
                 Mail mail = new Mail()
@@ -64,11 +35,29 @@ public class scheduler {
             }catch (Exception ex){
                 ex.printStackTrace();
 
-            }}
+            }
 
     }
 
-}
+
+    @Incoming("mailb2bs")
+    public void send(Record<String, EmailsPlan> record) {
+
+        EmailsPlan emailContent = record.value();
+        List<String> mails = Arrays.asList(emailContent.getEmail());
+        try {
+
+            Mail mail = new Mail()
+                    .setSubject(emailContent.getObjet())
+                    .setTo(mails)
+                    .setText(emailContent.getMessage());
+            mailer.send(mail).subscribeAsCompletionStage();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+
+    }}
 
 
 

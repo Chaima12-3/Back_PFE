@@ -11,6 +11,8 @@ import org.bson.types.ObjectId;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.util.Date;
+import java.util.List;
 
 @RegisterForReflection
 @Data
@@ -32,6 +34,8 @@ public class B2BClients {
     private String size;
     private Filter filter;
     private String url;
-    private Long count;
+    private UserM userM;
+    private Date datee;
+    private List<B2BClients> b2BClientsList;
     public B2BClients(){}
 }

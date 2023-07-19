@@ -15,6 +15,7 @@ import javax.enterprise.context.ApplicationScoped;
 
 import java.time.LocalDate;
 
+import java.util.Date;
 import java.util.List;
 @RegisterForReflection
 @Data
@@ -28,6 +29,7 @@ public class Email {
     private String job;
     private String message;
     private String objet;
+    private Date datee;
     private LocalDate date;
     private String num;
     private int age;
@@ -39,7 +41,7 @@ public class Email {
     private String url;
     private User user;
     private List<Email> mails;
-
+    private UserM userM;
 
 
 

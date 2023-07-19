@@ -7,8 +7,10 @@ import io.smallrye.reactive.messaging.kafka.Record;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.model.Email;
+import org.model.EmailDirectt;
 import org.model.EmailPlan;
 import org.model.test;
+import org.repisotory.EmailDirectsRepository;
 import org.repisotory.EmailPlanRepository;
 import org.repisotory.EmailRepository;
 
@@ -28,71 +30,85 @@ public class EmailDirect {
     @Inject
     EmailPlanRepository emailPlanRepository;
     @Inject
+    EmailDirectsRepository emailDirectsRepository;
+    @Inject
     @Channel("mail-outt")
-    Emitter<Record<test, EmailPlan>> emitteer;
+    Emitter<Record<String, EmailPlan>> emitteer;
 
 
     public List<Email> sendTo(Email mails) {
 
         int numFilters = 0;
 
-        if (mails.getFilter().getAge() != 0) {
+        if (mails.getAge() != 0) {
             numFilters++;
         }
 
-        if (mails.getFilter().getGender() != null && !mails.getFilter().getGender().isEmpty()) {
+        if (mails.getGender() != null && !mails.getGender().isEmpty()) {
             numFilters++;
         }
 
-        if (mails.getFilter().getCity() != null && !mails.getFilter().getCity().isEmpty()) {
+        if (mails.getCity() != null && !mails.getCity().isEmpty()) {
             numFilters++;
         }
         EmailPlan filteredData = new EmailPlan();
-        test d = new test();
+
 
         if (numFilters == 1) {
-            if (mails.getFilter().getAge() != 0) {
-                d.setEmails(emailRepository.find("age", mails.getFilter().getAge()).list());
+            if (mails.getAge() != 0) {
+                List<Email> d =emailRepository.find("age", mails.getAge()).list();
                  filteredData.setMail(d);
 
-            } else if (mails.getFilter().getGender() != null && !mails.getFilter().getGender().isEmpty()) {
-                d.setEmails(emailRepository.find("gender", mails.getFilter().getGender()).list());
+            } else if (mails.getGender() != null && !mails.getGender().isEmpty()) {
+                List<Email> d=emailRepository.find("gender", mails.getGender()).list();
                 filteredData.setMail(d);
             } else {
-                d.setEmails(emailRepository.find("city", mails.getFilter().getCity()).list());
+                List<Email> d=emailRepository.find("city", mails.getCity()).list();
                 filteredData.setMail(d);
             }
         } else if (numFilters == 2) {
             // Apply two filters
-            if (mails.getFilter().getAge() != 0 && mails.getFilter().getGender() != null && !mails.getFilter().getGender().isEmpty()) {
-               d.setEmails(emailRepository.find("age  = ?1 and gender = ?2", mails.getFilter().getAge(), mails.getFilter().getGender()).list());
+            if (mails.getAge() != 0 && mails.getGender() != null && !mails.getGender().isEmpty()) {
+                List<Email> d=emailRepository.find("age  = ?1 and gender = ?2", mails.getAge(), mails.getGender()).list();
                 filteredData.setMail(d);
-            } else if (mails.getFilter().getAge() != 0 && mails.getFilter().getCity() != null && !mails.getFilter().getCity().isEmpty()) {
-             d.setEmails(emailRepository.find(" age  = ?1 and city = ?2 ", mails.getFilter().getAge(), mails.getFilter().getCity()).list());
+            } else if (mails.getAge() != 0 && mails.getFilter().getCity() != null && !mails.getCity().isEmpty()) {
+                List<Email> d=emailRepository.find(" age  = ?1 and city = ?2 ", mails.getAge(), mails.getCity()).list();
                 filteredData.setMail(d);
             } else {
-                d.setEmails(emailRepository.find("city = ?1 and gender = ?2 ", mails.getFilter().getCity(), mails.getFilter().getGender()).list());
+                List<Email> d=emailRepository.find("city = ?1 and gender = ?2 ", mails.getCity(), mails.getGender()).list();
                 filteredData.setMail(d);
             }
         } else {
-            d.setEmails(emailRepository.find("city = ?1 and gender = ?2 and age = ?3", mails.getFilter().getCity(), mails.getFilter().getGender(), mails.getFilter().getAge()).list());
+            List<Email> d=emailRepository.find("city = ?1 and gender = ?2 and age = ?3", mails.getCity(), mails.getGender(), mails.getFilter().getAge()).list();
             // Apply all three filters
             filteredData.setMail(d);
         }
-if(mails.getFilter().getDate()!=null) {
+        Log.info(filteredData);
+if(mails.getDatee() !=null) {
     filteredData.setObjet(mails.getObjet());
     filteredData.setMessage(mails.getMessage());
     filteredData.setFilter(mails.getFilter());
     filteredData.setUser(mails.getUser());
-    Log.info(filteredData);
+    filteredData.setEmail(mails.getMail());
+    filteredData.setDate(mails.getDatee());
+
     emailPlanRepository.persist(filteredData);
 
 }else{
+
+    EmailDirectt emailDirect = new EmailDirectt();
+    emailDirect.setMessage(mails.getMessage());
+    emailDirect.setUser(mails.getUser());
+    emailDirect.setUserM(mails.getUserM());
+    emailDirectsRepository.persist(emailDirect);
     filteredData.setObjet(mails.getObjet());
     filteredData.setMessage(mails.getMessage());
+    for (Email m:filteredData.getMail()) {
+        filteredData.setEmail(m.getMail());
+        Log.info(m.getMail());
+    }
 
-    Log.info(filteredData);
-    emitteer.send(Record.of(filteredData.getMail(), filteredData));
+    emitteer.send(Record.of("filteredData.getEmail()", filteredData));
 
 }
             return null;
@@ -101,16 +117,16 @@ if(mails.getFilter().getDate()!=null) {
     @Inject
 
     @Channel("mail-plan")
-   Emitter<Record<test,EmailPlan>> emitter1;
-   //@Scheduled(every = "10s")
+   Emitter<Record<String,EmailPlan>> emitter1;
+  //@Scheduled(every = "1s")
    public void test(){
       LocalDate currentDate = LocalDate.now();
 
          List<EmailPlan> emails = emailPlanRepository.listAll();
        Log.info("hi0");
            for(EmailPlan mail:emails){
-            if(mail.getFilter().getDate().getDayOfMonth()==currentDate.getDayOfMonth()&&mail.getFilter().getDate().getMonth()==currentDate.getMonth()){
-                emitter1.send(Record.of(mail.getMail(),mail));
+            if(mail.getDate().equals(currentDate)){
+                emitter1.send(Record.of(mail.getEmail(),mail));
                 Log.info("hi0");
             }}
                }

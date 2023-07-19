@@ -5,6 +5,7 @@ import io.quarkus.logging.Log;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 import org.model.B2BClients;
 import org.model.User;
+import org.model.UserM;
 import org.service.B2BMail;
 import org.model.Enum.Size;
 import org.model.Filter1;
@@ -44,14 +45,22 @@ public class B2BEmailResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response add(B2BClients email) {
-        b2BEmailService.addEmail(email);
+        b2BEmailService.add(email);
         return Response.ok(email).build();
+    }
+    @POST
+    @Path("/addE")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addE(B2BClients b2BClients) {
+        b2BEmailService.addD(b2BClients);
+        return Response.ok(b2BClients).build();
     }
     @POST
     @Path("/countP")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> countP(ArrayList<User> user){
+    public List<UserM> countP(ArrayList<UserM> user){
         return b2BEmailService.countP(user);
     }
    @POST

@@ -8,23 +8,19 @@ import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.util.Date;
-import java.util.List;
 
 @RegisterForReflection
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ApplicationScoped
-public class EmailPlans {
+public class EmailDirectt {
+
     @BsonId
     private ObjectId id;
     private String message;
     private String objet;
     private Filter filter;
     private User user;
-    private String email;
     private UserM userM;
-    private List<B2BClients> b2BClients;
-    private Date datee;
 }

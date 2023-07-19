@@ -4,13 +4,11 @@ package org.service;
 import io.netty.channel.local.LocalEventLoopGroup;
 import io.quarkus.logging.Log;
 import org.bson.types.ObjectId;
-import org.model.B2BClients;
+import org.model.*;
 
-import org.model.EmailPlans;
 import org.model.Enum.Size;
-import org.model.Filter1;
-import org.model.User;
 import org.repisotory.B2BEmailRepository;
+import org.repisotory.EmailDirectsRepository;
 import org.repisotory.EmailPlanRepository;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -35,7 +33,8 @@ public class B2BEmailService {
     B2BEmailRepository b2BEmailRepository;
     @Inject
     EmailPlanRepository emailPlanRepository;
-
+    @Inject
+    EmailDirectsRepository emailDirectsRepository;
 
     public Response addEmail(B2BClients email) {
 
@@ -65,7 +64,11 @@ public class B2BEmailService {
     }
 
     public Response add(B2BClients b2B) {
+        String username = b2B.getUser().getUserName();
+        String email=b2B.getUser().getUserEmail();
 
+        UserM userM =new UserM(username,email);
+        b2B.setUserM(userM);
         b2BEmailRepository.persist(b2B);
         return Response.status(Response.Status.CREATED).build();
     }
@@ -87,7 +90,16 @@ public class B2BEmailService {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+public Response addD(B2BClients b2BClients){
 
+        EmailDirects emailDirects = new EmailDirects();
+        emailDirects.setMessage(b2BClients.getMessage());
+        emailDirects.setUser(b2BClients.getUser());
+        emailDirects.setUserM(b2BClients.getUserM());
+       emailDirectsRepository.persist(emailDirects);
+    return Response.status(Response.Status.CREATED).build();
+
+}
     public Response delete(String id) {
         B2BClients b2B = b2BEmailRepository.findById(new ObjectId(id));
         try {
@@ -98,19 +110,22 @@ public class B2BEmailService {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
-    public List<User> countP(ArrayList<User> user) {
-        List<User> usersWithCount = new ArrayList<>();
+    public List<UserM> countP(ArrayList<UserM> user) {
+        List<UserM> usersWithCount = new ArrayList<>();
 
-        for (User u : user) {
-            List<EmailPlans> resP = emailPlanRepository.find("user.userEmail", u.getUserEmail()).list();
-            List<B2BClients> res = b2BEmailRepository.find("user.userEmail",u.getUserEmail()).list();
+        for (UserM u : user) {
+            List<EmailPlans> resP = emailPlanRepository.find("user.userEmail", u.getEmail()).list();
+            List<EmailDirects> res = emailDirectsRepository.find("user.userEmail",u.getEmail()).list();
+            List<B2BClients> resC = b2BEmailRepository.find("user.userEmail",u.getEmail()).list();
             long countBP = resP.stream().count();
             long countB = res.stream().count();
-            User userWithCount = new User();
-            userWithCount.setUserEmail(u.getUserEmail());
-            userWithCount.setUserName(u.getUserName());
+            long countC=resC.stream().count();
+            UserM userWithCount = new UserM();
+            userWithCount.setEmail(u.getEmail());
+            userWithCount.setUsername(u.getUsername());
             userWithCount.setCountB(countB);
             userWithCount.setCountBP(countBP);
+            userWithCount.setCountC(countC);
 
 
             usersWithCount.add(userWithCount);
