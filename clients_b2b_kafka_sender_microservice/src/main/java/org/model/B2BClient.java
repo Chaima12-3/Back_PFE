@@ -11,6 +11,7 @@ import org.bson.types.ObjectId;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.time.LocalDate;
 
 @RegisterForReflection
 @Data
@@ -31,7 +32,7 @@ public class B2BClient {
     private String size;
     private Filter filter;
     private String url;
-
+    private LocalDate datee;
     private UserM userM;
     public B2BClient(){
 

@@ -89,8 +89,11 @@ if(mails.getDatee() !=null) {
     filteredData.setMessage(mails.getMessage());
     filteredData.setFilter(mails.getFilter());
     filteredData.setUser(mails.getUser());
-    filteredData.setEmail(mails.getMail());
-    filteredData.setDate(mails.getDatee());
+    for (Email m:filteredData.getMail()) {
+        filteredData.setEmail(m.getMail());
+        Log.info(m.getMail());
+    }
+    filteredData.setDatee(mails.getDatee());
 
     emailPlanRepository.persist(filteredData);
 
@@ -125,7 +128,7 @@ if(mails.getDatee() !=null) {
          List<EmailPlan> emails = emailPlanRepository.listAll();
        Log.info("hi0");
            for(EmailPlan mail:emails){
-            if(mail.getDate().equals(currentDate)){
+               if(mail.getDatee().getDayOfMonth()==currentDate.getDayOfMonth()&&mail.getDatee().getMonth()==currentDate.getMonth()&&mail.getDatee().getYear()==currentDate.getYear()){
                 emitter1.send(Record.of(mail.getEmail(),mail));
                 Log.info("hi0");
             }}

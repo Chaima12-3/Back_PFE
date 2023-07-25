@@ -27,6 +27,7 @@ public class EmailsPlan {
     private User user;
     private List<Emails> mail;
     private UserM userM;
-    private Date date;
+    private LocalDate datee;
+
 
 }

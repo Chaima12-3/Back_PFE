@@ -1,6 +1,7 @@
 package org.acme;
 
 import io.quarkus.logging.Log;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -21,6 +22,7 @@ public class KeycloakServiceImpl implements KeycloakService{
     UserRepository userRepository;
     private static final String KEYCLOAK_API_URL = "http://localhost:8080/admin/realms/StagePFE/users";
     private static final String KEYCLOAK_TOKEN_URL = "http://localhost:8080/realms/StagePFE/protocol/openid-connect/token";
+
     @Override
     public List<KeycloakUser> getUsers(String realm, int max) {
 
@@ -30,7 +32,7 @@ public class KeycloakServiceImpl implements KeycloakService{
                 .header("Authorization", "Bearer "+getToken())
                 .get(List.class);
 
-
+        Log.info(KEYCLOAK_API_URL);
 
         return users;
     }

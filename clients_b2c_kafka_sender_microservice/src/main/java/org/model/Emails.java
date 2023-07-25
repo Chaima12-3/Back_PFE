@@ -26,7 +26,8 @@ public class Emails {
     private String job;
     private String message;
     private String objet;
-    private Date datee;
+    private LocalDate datee;
+
     private LocalDate date;
     private String num;
     private String age;

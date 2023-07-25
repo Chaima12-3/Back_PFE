@@ -45,13 +45,15 @@ public class scheduler {
 
         EmailsPlan emailContent = record.value();
         List<String> mails = Arrays.asList(emailContent.getEmail());
+        Log.info(mails);
         try {
 
             Mail mail = new Mail()
                     .setSubject(emailContent.getObjet())
                     .setTo(mails)
-                    .setText(emailContent.getMessage());
+                    .setHtml(emailContent.getMessage());
             mailer.send(mail).subscribeAsCompletionStage();
+            Log.info("test");
         } catch (Exception ex) {
             ex.printStackTrace();
 

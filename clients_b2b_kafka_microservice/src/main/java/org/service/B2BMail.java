@@ -66,13 +66,16 @@ public class B2BMail {
             List<B2BClients> d=b2BEmailRepository.find("pay = ?1 and size = ?2 ", b2BClients.getPay(),b2BClients.getSize()).list();
             filteredData.setB2BClients(d);
         }
-        Log.info(filteredData);
+        Log.info(b2BClients.getDatee());
 
 
         if(b2BClients.getDatee() !=null) {
             filteredData.setObjet(b2BClients.getObjet());
             filteredData.setMessage(b2BClients.getMessage());
-
+            for (B2BClients m:filteredData.getB2BClients()) {
+                filteredData.setEmail(m.getCampagne_mail());
+                Log.info(m.getCampagne_mail());
+            }
             filteredData.setUser(b2BClients.getUser());
             filteredData.setB2BClients(b2BClients.getB2BClientsList());
             filteredData.setDatee(b2BClients.getDatee());
@@ -106,14 +109,17 @@ public class B2BMail {
     @Channel("mailb2b")
     Emitter<Record<String, EmailPlans>> emitter2;
 
-   //@Scheduled(every = "10s")
+  //@Scheduled(every = "10s")
     public void test1() {
        LocalDate currentDate = LocalDate.now();
 
        List<EmailPlans> emails = emailPlanRepository.listAll();
-       Log.info("hi0");
+Log.info(currentDate);
      for(EmailPlans mail:emails){
-          if(mail.getDatee().equals(currentDate)){
+         Log.info(mail.getDatee());
+          if(mail.getDatee().getDayOfMonth()==currentDate.getDayOfMonth()&&mail.getDatee().getMonth()==currentDate.getMonth()&&mail.getDatee().getYear()==currentDate.getYear()){
               emitter2.send(Record.of("mail.getMail()",mail));
-           }}}
+              Log.info("hi0"); }}
+       }
+
    }
