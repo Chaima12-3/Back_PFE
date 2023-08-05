@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Quarkus" url="file://$PROJECT_DIR$/assetmanagerstorage" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/B2B_Clients" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/B2B_Clients_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/B2C_Clients" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/B2C_Clients_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/campagnes_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Clients" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/clients_b2b_kafka_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/clients_b2b_kafka_sender_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Clients_B2C_Kafka_M_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/clients_b2c_kafka_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Clients_B2C_Kafka_Sender_M_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/clients_b2c_kafka_sender_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/clients_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/dashboard_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Emails_Planifies_microservices" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Emails_Planifies_Sender_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/envoiehistoriques_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Historiques" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/historiques__microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Historiques_Envoie_User__Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Historiques_Rejet__Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Kafka_Mail" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Kafka_Mail_Direct_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Kafka_Mail_Direct_Sender_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/Kafka_Mail_Sender" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/keycloak" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/keycloak_microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/mailer-quickstart" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/SMS" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/SMS_Microservice" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/SMS_Sender" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/smsmicroservices" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/twilio-microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/B2B_Clients" />
+    <file type="Qute" url="file://$PROJECT_DIR$/B2B_Clients_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/B2C_Clients" />
+    <file type="Qute" url="file://$PROJECT_DIR$/B2C_Clients_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/campagnes_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Clients" />
+    <file type="Qute" url="file://$PROJECT_DIR$/clients_b2b_kafka_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/clients_b2b_kafka_sender_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Clients_B2C_Kafka_M_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/clients_b2c_kafka_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Clients_B2C_Kafka_Sender_M_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/clients_b2c_kafka_sender_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/clients_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/dashboard_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Emails_Planifies_microservices" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Emails_Planifies_Sender_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/envoiehistoriques_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Historiques" />
+    <file type="Qute" url="file://$PROJECT_DIR$/historiques__microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Historiques_Envoie_User__Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Historiques_Rejet__Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Kafka_Mail" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Kafka_Mail_Direct_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Kafka_Mail_Direct_Sender_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/Kafka_Mail_Sender" />
+    <file type="Qute" url="file://$PROJECT_DIR$/keycloak" />
+    <file type="Qute" url="file://$PROJECT_DIR$/keycloak_microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/mailer-quickstart" />
+    <file type="Qute" url="file://$PROJECT_DIR$/SMS" />
+    <file type="Qute" url="file://$PROJECT_DIR$/SMS_Microservice" />
+    <file type="Qute" url="file://$PROJECT_DIR$/SMS_Sender" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/stage1/pom.xml" />
+        <option value="$PROJECT_DIR$/stage - Copie/pom.xml" />
+        <option value="$PROJECT_DIR$/copie/pom.xml" />
+        <option value="$PROJECT_DIR$/B2B/pom.xml" />
+        <option value="$PROJECT_DIR$/B2C/pom.xml" />
+        <option value="$PROJECT_DIR$/B2C_Clients/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail/pom.xml" />
+        <option value="$PROJECT_DIR$/B2B_Clients/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail_Sender/pom.xml" />
+        <option value="$PROJECT_DIR$/SMS/pom.xml" />
+        <option value="$PROJECT_DIR$/SMS_Sender/pom.xml" />
+        <option value="$PROJECT_DIR$/code-with-quarkus/pom.xml" />
+        <option value="$PROJECT_DIR$/keycloak/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients/pom.xml" />
+        <option value="$PROJECT_DIR$/Historiques/pom.xml" />
+        <option value="$PROJECT_DIR$/assetmanagerstorage/pom.xml" />
+        <option value="$PROJECT_DIR$/Campagnes_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/B2B_Clients_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/B2C_Clients_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Historiques_Rejet__Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail_Sender_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/keycloak_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/SMS_Sender_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail_Direct_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Kafka_Mail_Direct_Sender_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Historiques__Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients_B2B_Kafka_Sender_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients_B2B_Kafka_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients_B2C_Kafka_M_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Clients_B2C_Kafka_Sender_M_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/Emails_Planifies_microservices/pom.xml" />
+        <option value="$PROJECT_DIR$/Emails_Planifies_Sender_Microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/smsmicroservices/pom.xml" />
+        <option value="$PROJECT_DIR$/twilio-microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/clients_b2c_kafka_microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/clients_b2c_kafka_sender_microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/dashboard_microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/envoiehistoriques_microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/mailer-quickstart/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dashboard_microservice/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

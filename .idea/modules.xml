@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/B2B_Clients/B2B_Clients_Microservice.iml" filepath="$PROJECT_DIR$/B2B_Clients/B2B_Clients_Microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/B2C_Clients/B2C_Clients_Microservice.iml" filepath="$PROJECT_DIR$/B2C_Clients/B2C_Clients_Microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Historiques_Rejet__Microservice/Historiques_Microservice.iml" filepath="$PROJECT_DIR$/Historiques_Rejet__Microservice/Historiques_Microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kafka_Mail_Direct_Microservice/Kafka_Mail (1).iml" filepath="$PROJECT_DIR$/Kafka_Mail_Direct_Microservice/Kafka_Mail (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kafka_Mail_Direct_Sender_Microservice/Kafka_Mail_Sender (1).iml" filepath="$PROJECT_DIR$/Kafka_Mail_Direct_Sender_Microservice/Kafka_Mail_Sender (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Nouveau dossier (2).iml" filepath="$PROJECT_DIR$/.idea/Nouveau dossier (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/assetmanagerstorage/assetmanagerstorage.iml" filepath="$PROJECT_DIR$/assetmanagerstorage/assetmanagerstorage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/campagnes_microservice/campagnes_microservice.iml" filepath="$PROJECT_DIR$/campagnes_microservice/campagnes_microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clients_B2B_Kafka_Microservice/clients_b2b_kafka_microservice.iml" filepath="$PROJECT_DIR$/Clients_B2B_Kafka_Microservice/clients_b2b_kafka_microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clients_B2B_Kafka_Sender_Microservice/clients_b2b_kafka_sender_microservice.iml" filepath="$PROJECT_DIR$/Clients_B2B_Kafka_Sender_Microservice/clients_b2b_kafka_sender_microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clients_Microservice/clients_microservice.iml" filepath="$PROJECT_DIR$/Clients_Microservice/clients_microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/historiques__microservice/historiques__microservice.iml" filepath="$PROJECT_DIR$/historiques__microservice/historiques__microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak_microservice/keycloak_microservice.iml" filepath="$PROJECT_DIR$/keycloak_microservice/keycloak_microservice.iml" />
+    </modules>
+  </component>
+</project>

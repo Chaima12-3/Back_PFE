@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="clients_b2b_kafka_sender_microservice" />
+        <module name="Kafka_Mail_Sender (1)" />
+        <module name="clients_microservice" />
+        <module name="assetmanagerstorage" />
+        <module name="Kafka_Mail (1)" />
+        <module name="campagnes_microservice" />
+        <module name="keycloak_microservice" />
+        <module name="twilio-microservice" />
+        <module name="B2B_Clients_Microservice" />
+        <module name="clients_b2b_kafka_microservice" />
+        <module name="clients_b2c_kafka_sender_microservice" />
+        <module name="clients_b2c_kafka_microservice" />
+        <module name="historiques__microservice" />
+        <module name="B2C_Clients_Microservice" />
+        <module name="mailer-quickstart" />
+        <module name="Historiques_Microservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="B2B_Clients" target="11" />
+      <module name="B2B_Clients_Microservice" target="11" />
+      <module name="B2C_Clients_Microservice" target="11" />
+      <module name="dashboard_microservice" target="11" />
+      <module name="Emails_Planifies_microservices" target="11" />
+      <module name="Emails_Planifies_Sender_Microservices" target="11" />
+      <module name="envoiehistoriques_microservice" target="11" />
+      <module name="Historiques_Microservice" target="11" />
+      <module name="Kafka_Mail (1)" target="11" />
+      <module name="Kafka_Mail_Sender (1)" target="11" />
+      <module name="sms" target="11" />
+      <module name="SMS_Microservice" target="11" />
+      <module name="smsmicroservices" target="11" />
+      <module name="stage" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="B2B_Clients" options="-parameters" />
+      <module name="B2B_Clients_Microservice" options="-parameters" />
+      <module name="B2C_Clients_Microservice" options="-parameters" />
+      <module name="Emails_Planifies_Sender_Microservices" options="-parameters" />
+      <module name="Emails_Planifies_microservices" options="-parameters" />
+      <module name="Historiques_Microservice" options="-parameters" />
+      <module name="Kafka_Mail (1)" options="-parameters" />
+      <module name="Kafka_Mail_Sender (1)" options="-parameters" />
+      <module name="SMS_Microservice" options="-parameters" />
+      <module name="assetmanagerstorage" options="-parameters" />
+      <module name="campagnes_microservice" options="-parameters" />
+      <module name="clients_b2b_kafka_microservice" options="-parameters" />
+      <module name="clients_b2b_kafka_sender_microservice" options="-parameters" />
+      <module name="clients_b2c_kafka_microservice" options="-parameters" />
+      <module name="clients_b2c_kafka_sender_microservice" options="-parameters" />
+      <module name="clients_microservice" options="-parameters" />
+      <module name="dashboard_microservice" options="-parameters" />
+      <module name="envoiehistoriques_microservice" options="-parameters" />
+      <module name="historiques__microservice" options="-parameters" />
+      <module name="keycloak_microservice" options="-parameters" />
+      <module name="mailer-quickstart" options="-parameters" />
+      <module name="sms" options="-parameters" />
+      <module name="smsmicroservices" options="-parameters" />
+      <module name="stage" options="-parameters" />
+      <module name="twilio-microservice" options="-parameters" />
+    </option>
+  </component>
+</project>
